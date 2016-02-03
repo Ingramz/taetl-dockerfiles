@@ -1,9 +1,3 @@
-FROM docker:latest
+FROM dduportal/docker-compose:latest
 
-RUN apk add --update --no-cache bash
-
-ENV COMPOSE_VERSION 1.5.2
-
-RUN curl -o /usr/local/bin/docker-compose -L \
-		"https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-Linux-x86_64" \
-	&& chmod +x /usr/local/bin/docker-compose
+RUN apt-get update && apt-get install -y bash
