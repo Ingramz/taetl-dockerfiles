@@ -1,4 +1,4 @@
-FROM docker:1.11.0
+FROM docker:latest
 
 RUN set -x \
 	&& apk add --update --no-cache bash rsync py-pip \
