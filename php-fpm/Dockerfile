@@ -4,4 +4,4 @@ RUN set -x \
 	&& apk add --no-cache --update bash postfix \
 	&& docker-php-ext-install zip pdo_mysql
 
-CMD postfix && php-fpm
+CMD postfix start && php-fpm
