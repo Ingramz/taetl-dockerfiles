@@ -1,7 +1,7 @@
-FROM php:fpm
+FROM php:fpm-alpine
 
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y zlib1g-dev postfix
-RUN docker-php-ext-install mbstring zip pdo_mysql
+RUN set -x \
+	&& apk add --no-cache --update postfix \
+	&& docker-php-ext-install mbstring zip pdo_mysql
 
-CMD service postfix start && php-fpm
+CMD /etc/init.d/postfix start && php-fpm
