@@ -1,7 +1,7 @@
 FROM php:fpm-alpine
 
 RUN set -x \
-	&& apk add --no-cache --update postfix \
-	&& docker-php-ext-install mbstring zip pdo_mysql
+	&& apk add --no-cache --update bash postfix \
+	&& docker-php-ext-install zip pdo_mysql
 
 CMD /etc/init.d/postfix start && php-fpm
